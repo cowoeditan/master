@@ -36,11 +36,10 @@ class Auth extends CI_Controller {
 					'level' => $row->level,
 					'name' => $row->name
 				);
-
 				$this->session->set_userdata($param);
-				echo "<script>alert('gg');window.location='".site_url('dashboard')."'</script>";
+				echo "<script>window.location='".site_url('dashboard')."'</script>";
 			} else {
-				echo "<script>alert('cc');window.location='".site_url('auth/auth/login')."'</script>";
+				echo "<script>alert('Login Gagal !, Username / Password Salah !!');window.location='".site_url('auth/auth/login')."'</script>";
 			}
 		}
 	}

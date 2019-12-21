@@ -20,6 +20,17 @@ class User extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->template->load('template', 'user/data_user');
+		check_not_login();
+		$this->load->model('user/user_m');
+		$data['row'] = $this->user_m->get();
+		$this->template->load('template', 'user/data_user', $data);
+	}
+
+	public function add()
+	{
+		// check_not_login();
+		// $this->load->model('user/user_m');
+		// $data['row'] = $this->user_m->get();
+		$this->template->load('template', 'user/data_form_add');
 	}
 }

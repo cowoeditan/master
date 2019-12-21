@@ -172,7 +172,7 @@
         
         <li class="header">LABELS</li>
         <?php if($this->session->userdata('level') == 1 ){ ?>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
+        <li><a href="<?=site_url('user/user')?>"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
         <?php } ?>
       </ul>
     </section>
