@@ -27,10 +27,10 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th class="text-center">No</th>
-                        <th class="text-center">Username</th>
-                        <th class="text-center">Name</th>
-                        <th class="text-center">Level</th>
+                        <th>No</th>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Level</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -44,12 +44,14 @@
                         <td><?=$data->name?></td>
                         <td><?=$data->level == 1 ? "Admin" : "User"?></td>
                         <td class="text-center" width="200px">
-                            <a href="<?=site_url('user/user/update/')?>" class="btn btn-success btn-flat">
+                            <form action="<?=site_url('user/user/del')?>" method="post">
+                            <a href="<?=site_url('user/user/edit/'.$data->id)?>" class="btn btn-success btn-flat">
                                 <i class="fa fa-pencil"> Update</i>
                             </a>
-                            <a href="<?=site_url('user/user/delete/')?>" class="btn btn-danger btn-flat">
+                            <input type="hidden" name="id" value="<?=$data->id?>"> 
+                            <button onclick="return confirm('Are you sure ??')" class="btn btn-danger btn-flat">
                                 <i class="fa fa-trash"> Delete</i>
-                            </a>
+                            </button>
                         </td>
                     </tr>
 
