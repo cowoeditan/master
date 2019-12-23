@@ -59,6 +59,15 @@
                             <?=form_error('level')?>
                         </div>
                         <div class="form-group">
+                            <label> Hospital</label>
+                            <select name="id_hospital" class="form-control">
+                                <option value="">Choise</option>
+                               <?php foreach($hospital->result() as $key => $data) { ?>
+                               <option value="<?=$data->id_hospital?>" <?=$data->id_hospital == $row->id_hospital ? "selected" : null ?>><?=$data->nama?></option>
+                               <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <button type="submit" class="btn btn-success btn-flat">
                                 <i class="fa fa-paper-plane"></i>Save
                             </button>

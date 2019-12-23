@@ -23,7 +23,7 @@ class User extends CI_Controller {
 		parent::__construct();
 		check_not_login();
 		check_admin();
-		$this->load->model('user/user_m');
+		$this->load->model(['user/user_m', 'hospital/hospital_m']);
 		$this->load->library('form_validation');
 	}
 	public function index()
@@ -48,7 +48,11 @@ class User extends CI_Controller {
 		$this->form_validation->set_message('is_unique', '{field} already use, change more value');
 		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		if ($this->form_validation->run() == FALSE) {
-			$this->template->load('template', 'user/user_form_add');
+			$hospital = $this->hospital_m->get();
+			$data = array(
+				'hospital' => $hospital,
+			);
+			$this->template->load('template', 'user/user_form_add',$data);
 		} else {
 			$post = $this->input->post(null, TRUE);
 			$this->user_m->add($post);
@@ -83,9 +87,14 @@ class User extends CI_Controller {
 		$this->form_validation->set_message('is_unique', '{field} already use, change more value');
 		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		if ($this->form_validation->run() == FALSE) {
-			$query = $this->user_m->get();
-			if($query->num_rows() > 0 ) {
-				$data['row'] = $query->row();
+			$user = $this->user_m->get($id);
+			if($user->num_rows() > 0 ) {
+				$user = $user->row();
+				$hospital = $this->hospital_m->get();
+				$data =  array(
+					'row' => $user,
+					'hospital' => $hospital,
+				);
 				$this->template->load('template', 'user/user_form_edit', $data);
 			} else {
 				echo "<script>alert('Data not found... ');</script>";
@@ -104,7 +113,7 @@ class User extends CI_Controller {
 	function username_check(){
 		
 		$post = $this->input->post(null, TRUE);
-		$query = $this->db->query("SELECT * FROM user WHERE username != '$post[username]' AND id != '$post[id]'");
+		$query = $this->db->query("SELECT * FROM user WHERE username = '$post[username]' AND id != '$post[id]'");
 		if($query->num_rows() > 0) {
 			$this->form_validation->set_message('username_check', '{field} already use, change more value');
 			return FALSE;
