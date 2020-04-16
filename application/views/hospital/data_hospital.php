@@ -56,7 +56,6 @@
                             <a href="<?=site_url('hospital/hospital/edit/'.$data->id_hospital)?>" class="btn btn-success btn-flat">
                                 <i class="fa fa-pencil"> Update</i>
                             </a>
-                            <input type="text" name="id_hospital" value="<?=$data->id_hospital?>"> 
                             <button onclick="return confirm('Are you sure ??')" class="btn btn-danger btn-flat">
                                 <i class="fa fa-trash"> Delete</i>
                             </button>

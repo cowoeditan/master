@@ -4,15 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Harapan KITA</title>
+    <title>BOUGENVILLE</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet"
+        href="<?=base_url()?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/Ionicons/css/ionicons.min.css"> -->
     <!-- Theme style -->
     <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -39,9 +42,9 @@
             <!-- Logo -->
             <a href="<?=base_url()?>" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>H</b>KT</span>
+                <span class="logo-mini"><b>BGV</b></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Harapan</b> KITA</span>
+                <span class="logo-lg"><b>BOUGENVILLE</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -148,7 +151,8 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?=$this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'class="active"' : ''?>>
+                    <li
+                        <?=$this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'class="active"' : ''?>>
                         <a href="<?=site_url('dashboard')?>"><i class="fa fa-area-chart"></i>
                             <span>Dashboard</span>
                         </a>
@@ -165,6 +169,72 @@
                         <a href="<?=site_url('hospital/hospital')?>"><i class="fa fa-hospital-o"></i>
                             <span>Data Hospital</span>
                         </a>
+                    </li>
+                    <li class="treeview  
+                        <?= $this->uri->segment(1) == 'distributor' || 
+                            $this->uri->segment(1) == 'principal' || 
+                            $this->uri->segment(1) == 'pbf' || 
+                            $this->uri->segment(1) == 'obat' || 
+                            $this->uri->segment(1) == 'poliklinik' || 
+                            $this->uri->segment(1) == 'barang' || 
+                            $this->uri->segment(1) == 'pembayaran' || 
+                            $this->uri->segment(1) == 'asuransi' || 
+                            $this->uri->segment(1) == 'sarana' || 
+                            $this->uri->segment(1) == 'sipa' || 
+                            $this->uri->segment(1) == 'pasien' || 
+                            $this->uri->segment(1) == 'tindakan' ? 'active' : ''?>">
+                        <a href="#">
+                            <i class="fa fa-cube"></i> <span>Data Utama</span><span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li <?=$this->uri->segment(1) == 'asuransi' ? 'class="active"' : ''?>><a href="<?=site_url('asuransi')?>"><i class="fa fa-credit-card"></i>Data Asuransi</a></li>
+                            <li <?=$this->uri->segment(1) == 'barang' ? 'class="active"' : ''?>><a href="<?=site_url('barang')?>"><i class="fa fa-circle-o"></i>Data Barang</a></li>
+                            <li <?=$this->uri->segment(1) == 'obat' ? 'class="active"' : ''?>><a href="<?=site_url('obat')?>"><i class="fa fa-medkit"></i>Data Obat</a></li>
+                            <li <?=$this->uri->segment(1) == 'poliklinik' ? 'class="active"' : ''?>><a href="<?=site_url('poliklinik')?>"><i class="fa fa-hospital-o"></i>Data Poliklinik</a></li>
+                            <li <?=$this->uri->segment(1) == 'pembayaran' ? 'class="active"' : ''?>><a href="<?=site_url('pembayaran')?>"><i class="fa fa-cc-mastercard"></i>Data Pembayaran</a></li>
+                            <li <?=$this->uri->segment(1) == 'pasien' ? 'class="active"' : ''?>><a href="<?=site_url('pasien')?>"><i class="fa fa-users"></i>Data Pasien</a></li>
+                            
+                            
+                            <li <?=$this->uri->segment(1) == 'principal' ? 'class="active"' : ''?>><a href="<?=site_url('principal')?>"><i class="fa fa-sitemap"></i>Data Principal</a></li>
+                            <li <?=$this->uri->segment(1) == 'distributor' ? 'class="active"' : ''?>><a href="<?=site_url('distributor')?>"><i class="fa fa-sitemap"></i>Data Distributor</a></li>
+                            <li <?=$this->uri->segment(1) == 'sarana' ? 'class="active"' : ''?>><a href="<?=site_url('sarana')?>"><i class="fa fa-institution"></i>Data Sarana</a></li>
+                            <li <?=$this->uri->segment(1) == 'sipa' ? 'class="active"' : ''?>><a href="<?=site_url('sipa')?>"><i class="fa fa-institution"></i>Data SIPA</a></li>
+                           
+
+                            <li <?=$this->uri->segment(1) == 'pbf' ? 'class="active"' : ''?>><a href="<?=site_url('pbf')?>"><i class="fa fa-institution"></i>Data PBF</a></li>
+                            
+                            <li <?=$this->uri->segment(1) == 'tindakan' ? 'class="active"' : ''?>><a href="<?=site_url('tindakan')?>"><i class="fa fa-stethoscope"></i>Data Tindakan</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <li class="treeview  
+                        <?= 
+                            $this->uri->segment(1) == 'pasien_masuk' ||
+                            $this->uri->segment(1) == 'pasien_hari_ini' ? 'active' : ''?>">
+                        <a href="#">
+                            <i class="fa  fa-newspaper-o"></i> <span>Pendaftaran</span><span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li <?=$this->uri->segment(1) == 'pasien_masuk' ? 'class="active"' : ''?>><a href="<?=site_url('pasien_masuk')?>"><i class="fa fa-pencil-square"></i>Pasien Masuk</a></li>
+                            <li <?=$this->uri->segment(1) == 'pasien_hari_ini' ? 'class="active"' : ''?>><a href="<?=site_url('pasien_hari_ini')?>"><i class="fa fa-users"></i>Pasien Hari Ini</a></li>
+                       </ul>
+                    </li>
+
+                    <li class="treeview  
+                        <?= 
+                            $this->uri->segment(1) == 'pasien_masuk_poli' ||
+                            $this->uri->segment(1) == 'pasien_hari_ini' ? 'active' : ''?>">
+                        <a href="#">
+                            <i class="fa  fa-stethoscope"></i> <span>Poli</span><span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li <?=$this->uri->segment(1) == 'pasien_masuk_poli' ? 'class="active"' : ''?>><a href="<?=site_url('pasien_masuk_poli')?>"><i class="fa fa-user-md"></i>Pasien Masuk Poli</a></li>
+                            <li <?=$this->uri->segment(1) == 'pasien_hari_ini' ? 'class="active"' : ''?>><a href="<?=site_url('pasien_hari_ini')?>"><i class="fa fa-users"></i>Pasien Hari Ini</a></li>
+                       </ul>
                     </li>
 
                     <?php } ?>
@@ -206,17 +276,43 @@
     <script src="<?=base_url()?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- SlimScroll -->
     <script src="<?=base_url()?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+
     <!-- FastClick -->
-    <script src="<?=base_url()?>assets/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- <script src="<?=base_url()?>assets/bower_components/fastclick/lib/fastclick.js"></script> -->
     <!-- AdminLTE App -->
     <script src="<?=base_url()?>assets/dist/js/adminlte.min.js"></script>
+    <script src="<?=base_url()?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?=base_url()?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
+    <!-- <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
     <script src="<?=base_url()?>assets/browser_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?=base_url()?>assets/browser_components/datatables.net-bs/js/jquery.dataTables.boostrap.js"></script>
+    <script src="<?=base_url()?>assets/browser_components/datatables.net-bs/js/jquery.dataTables.boostrap.js"></script> -->
     <script>
     $(document).ready(function() {
-        $('.sidebar-menu').tree()
+        $('#table1').DataTable()
+
+        $('#id_poliklinik').change(function(){ 
+            var id=$(this).val();
+            $.ajax({
+                url : "<?php echo site_url('pasien_masuk/get_dokter_poli');?>",
+                method : "POST",
+                data : {id: id},
+                async : true,
+                dataType : 'json',
+                success: function(data){
+                    
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+                        html += '<option value='+data[i].id+'>'+data[i].name+'</option>';
+                    }
+                    $('#id_dokter').html(html);
+
+                }
+            });
+            return false;
+        }); 
     })
     </script>
 </body>
