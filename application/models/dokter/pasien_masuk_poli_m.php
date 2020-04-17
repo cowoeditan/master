@@ -119,6 +119,10 @@ class Pasien_masuk_poli_m extends CI_Model {
         $params['s'] = $post['s'];
         if ($post['id_poliklinik'] == 10) {
             $params['kepala'] = $post['kepala'];
+            $params['leher'] = $post['leher'];
+            $params['thorax'] = $post['thorax'];
+            $params['abdomen'] = $post['abdomen'];
+            $params['extremitas'] = $post['extremitas'];
         } else if ($post['id_poliklinik'] == 3){
             $params['gigi'] = $post['gigi'];
             $params['periodontal'] = $post['periodontal'];
@@ -128,6 +132,16 @@ class Pasien_masuk_poli_m extends CI_Model {
             $params['bibir'] = $post['bibir'];
             $params['bukal'] = $post['bukal'];
             $params['leher_atas'] = $post['leher_atas'];
+        } else if ($post['id_poliklinik'] == 4){
+            $params['hpl'] = $post['hpl'];
+            $params['hpht'] = $post['hpht'];
+            $params['usia_kehamilan'] = $post['usia_kehamilan'];
+            $params['bb'] = $post['bb'];
+            $params['djj'] = $post['djj'];
+            $params['abdomen_bidan'] = $post['abdomen_bidan'];
+            $params['therapy'] = $post['therapy'];
+            $params['pemeriksaan_penunjang'] = $post['pemeriksaan_penunjang'];
+            $params['lila'] = $post['lila'];
         }
         
        

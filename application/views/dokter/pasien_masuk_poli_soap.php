@@ -46,7 +46,7 @@
                                     <div class="row">
                                         <form action="<?= site_url('pasien_masuk_poli/process') ?>" method="post">
                                             <input type="hidden" name="id" value="<?= $row->id ?>">
-                                            <input type="hidden" name="id_poliklinik" value="<?= $row->id_poliklinik?>">
+                                            <input type="hidden" name="id_poliklinik" value="<?= $row->id_poliklinik ?>">
                                             <div class="col-md-12">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -145,9 +145,105 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>LEHER</label>
+                                                            <input name="leher" class="form-control" value="<?= $row->leher ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>THORAX</label>
+                                                            <input name="thorax" class="form-control" value="<?= $row->thorax ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>ABDOMEN</label>
+                                                            <input name="abdomen" class="form-control" value="<?= $row->abdomen ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>EXTREMITAS</label>
+                                                            <input name="extremitas" class="form-control" value="<?= $row->extremitas ?>" required>
+                                                        </div>
+                                                    </div>
+
 
                                                 </div>
-                                            <?php } ?>
+                                            <?php } else if ($row->id_poliklinik == 4) { ?>
+
+                                                <div class="col-md-12">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>HPL</label>
+                                                            <input name="hpl" class="form-control" value="<?= $row->hpl ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>HPHT</label>
+                                                            <input name="hpht" class="form-control" value="<?= $row->hpht ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>USIA KEHAMILAN</label>
+                                                            <input name="usia_kehamilan" class="form-control" value="<?= $row->usia_kehamilan ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>BB</label>
+                                                            <input name="bb" class="form-control" value="<?= $row->bb ?>" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>DJJ</label>
+                                                            <input name="djj" class="form-control" value="<?= $row->djj ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>ABDOMEN</label>
+                                                            <input name="abdomen_bidan" class="form-control" value="<?= $row->abdomen_bidan ?>" required>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>THERAPY</label>
+                                                            <input name="therapy" class="form-control" value="<?= $row->therapy ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>PEMERIKSAAN PENUNJANG </label>
+                                                            <input name="pemeriksaan_penunjang" class="form-control" value="<?= $row->pemeriksaan_penunjang ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>LILA </label>
+                                                            <input name="lila" class="form-control" value="<?= $row->lila ?>" required>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            <?php  } ?>
 
 
                                             <div class="col-md-12">
@@ -168,7 +264,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Perawat</label>
-                                                        <input name="perawat" class="form-control" value="<?= $row->perawat ?>" required> 
+                                                        <input name="perawat" class="form-control" value="<?= $row->perawat ?>" required>
                                                     </div>
                                                 </div>
                                             </div>

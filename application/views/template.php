@@ -236,6 +236,20 @@
                             <li <?=$this->uri->segment(1) == 'pasien_hari_ini' ? 'class="active"' : ''?>><a href="<?=site_url('pasien_hari_ini')?>"><i class="fa fa-users"></i>Pasien Hari Ini</a></li>
                        </ul>
                     </li>
+                    
+                    <li class="treeview  
+                        <?= 
+                            $this->uri->segment(1) == 'pasien_masuk_apotek' ||
+                            $this->uri->segment(1) == 'pasien_hari_ini' ? 'active' : ''?>">
+                        <a href="#">
+                            <i class="fa  fa-stethoscope"></i> <span>Apotek</span><span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li <?=$this->uri->segment(1) == 'pasien_masuk_apotek' ? 'class="active"' : ''?>><a href="<?=site_url('pasien_masuk_apotek')?>"><i class="fa fa-hospital-o"></i>Pasien Masuk Apotek</a></li>
+                            <li <?=$this->uri->segment(1) == 'pasien_hari_ini' ? 'class="active"' : ''?>><a href="<?=site_url('pasien_hari_ini')?>"><i class="fa fa-users"></i>Pasien Hari Ini</a></li>
+                       </ul>
+                    </li>
 
                     <?php } ?>
                 </ul>

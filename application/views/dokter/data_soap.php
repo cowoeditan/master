@@ -127,16 +127,112 @@
                                             <?php
                                             } else if ($row->id_poliklinik == 10) { ?>
 
-<div class="col-md-12">
+                                                <div class="col-md-12">
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label>KEPALA : </label> <?= $row->kepala ?>
 
                                                         </div>
                                                     </div>
-                                                   
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>LEHER : </label> <?= $row->leher ?>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>THORAX : </label> <?= $row->thorax ?>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>ABDOMEN : </label> <?= $row->abdomen ?>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>EXTREMITAS : </label> <?= $row->extremitas ?>
+
+                                                        </div>
+                                                    </div>
+
 
                                                 </div>
+                                            <?php } else if ($row->id_poliklinik == 4) { ?>
+                                                <div class="col-md-12">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>HPL : </label> <?= $row->hpl ?>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>HPHT : </label> <?= $row->hpht ?>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>USIA KEHAMILAN : </label> <?= $row->usia_kehamilan ?>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>BB : </label> <?= $row->bb ?>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>DJJ : </label> <?= $row->djj ?>
+
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>ABDOMEN : </label> <?= $row->abdomen_bidan ?>
+
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>THERAPY : </label> <?= $row->therapy ?>
+
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>PEMERIKSAAN PENUNJANG : </label> <?= $row->pemeriksaan_penunjang ?>
+
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>LILA : </label> <?= $row->lila ?>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
                                             <?php } ?>
 
 
