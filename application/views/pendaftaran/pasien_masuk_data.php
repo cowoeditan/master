@@ -14,15 +14,14 @@
 <!-- Main content -->
 <section class="content">
 
-    <?php $this->view('messages')?>
+    <?php $this->view('messages') ?>
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Daftar Pasien Masuk</h3>
             <div class="pull-right">
-            <a href="<?=site_url('pasien_masuk/add')?>" class="btn btn-primary btn-flat" title="Tambah" data-toggle="tooltip"
-                                            data-placement="top">
-                <i class="fa fa-plus"></i>
-            </a>
+                <a href="<?= site_url('pasien_masuk/add') ?>" class="btn btn-primary btn-flat" title="Tambah" data-toggle="tooltip" data-placement="top">
+                    <i class="fa fa-plus"></i>
+                </a>
             </div>
         </div>
         <div class="box-body table-responsive">
@@ -42,35 +41,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     $no = 1;
-                    foreach($row->result() as $key => $data) { ?>
-                    <tr>
-                        <td><?=$no++?>.</td>
-                        <td><?=$data->no_regis?></td>
-                        <td><?=$data->panggilan .'. '.$data->nama_pasien?></td>
-                        <td><?=$data->usia?> Tahun</td>
-                        <td><?=$data->nama_poliklinik?></td>
-                        <td><?=$data->nama_dokter?></td>
-                        <td><?=$data->nama_pembayaran?></td>
-                        <td><?=$data->tgl_daftar?></td>
-                        <td><?=$data->status?></td>
-                        <td class="text-center" width="12%;">
-                            <a href="<?=site_url('pasien_masuk/edit/'.$data->id)?>" class="btn btn-success btn-flat" title="Ubah" data-toggle="tooltip"
-                                            data-placement="top">
-                                <i class="fa fa-pencil"></i>
-                            </a> 
-                            <a href="<?=site_url('pasien_masuk/del/'.$data->id)?>" onclick="return confirm('yakin ingin menghapus data ini ??')" class="btn btn-danger btn-flat" title="Hapus" data-toggle="tooltip"
-                                            data-placement="top">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                            <a href="<?=site_url('pasien_masuk/send/'.$data->id)?>" onclick="return confirm('yakin ingin mengirim data ini ??')" class="btn btn-warning btn-flat" title="Kirim" data-toggle="tooltip"
-                                            data-placement="top">
-                                <i class="fa fa-send-o"></i>
-                            </a>
-                            
-                        </td>
-                    </tr>
+                    foreach ($row->result() as $key => $data) { ?>
+                        <tr>
+                            <td><?= $no++ ?>.</td>
+                            <td><?= $data->no_regis ?></td>
+                            <td><?= $data->panggilan . '. ' . $data->nama_pasien ?></td>
+                            <td><?= $data->usia ?> Tahun</td>
+                            <td><?= $data->nama_poliklinik ?></td>
+                            <td><?= $data->nama_dokter ?></td>
+                            <td><?= $data->nama_pembayaran ?></td>
+                            <td><?= $data->tgl_daftar ?></td>
+                            <td>
+                                <?php
+                                if ($data->status == 1) { ?>
+                                    <p style="color: orange;"><b>Dalam Antrian</b></p>
+                                <?php } else if ($data->status == 2) { ?>
+                                    <p style="color: green;"><b>Berada Di Poli</b></p>
+                                <?php  } ?>
+                            </td>
+                            <td class="text-center" width="12%;">
+                                <a href="<?= site_url('pasien_masuk/edit/' . $data->id) ?>" class="btn btn-success btn-flat" title="Ubah" data-toggle="tooltip" data-placement="top">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="<?= site_url('pasien_masuk/del/' . $data->id) ?>" onclick="return confirm('yakin ingin menghapus data ini ??')" class="btn btn-danger btn-flat" title="Hapus" data-toggle="tooltip" data-placement="top">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <a href="<?= site_url('pasien_masuk/send/' . $data->id) ?>" onclick="return confirm('yakin ingin mengirim data ini ??')" class="btn btn-warning btn-flat" title="Kirim" data-toggle="tooltip" data-placement="top">
+                                    <i class="fa fa-send-o"></i>
+                                </a>
+
+                            </td>
+                        </tr>
 
                     <?php } ?>
                 </tbody>
@@ -80,3 +83,8 @@
 
 </section>
 <!-- /.content -->
+<script>
+    $(document).ready(function() {
+        $('#table1').DataTable()
+    })
+</script>

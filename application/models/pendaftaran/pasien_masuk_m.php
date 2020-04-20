@@ -45,7 +45,7 @@ class Pasien_masuk_m extends CI_Model {
         $params['id_poliklinik'] = $post['id_poliklinik'];
         $params['id_dokter'] = $post['id_dokter'];
         $params['tgl_daftar'] = $post['tgl_daftar'];
-        $params['status'] = 2;
+        $params['status'] = 1;
         $params['cd'] = date('Y-m-d H:i:s');
         $params['cd_usr'] = $this->fungsi->user_login()->id;
         

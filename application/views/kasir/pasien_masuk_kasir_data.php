@@ -1,13 +1,13 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Daftar Pasien Masuk Apotek
-        <small>Pasien Masuk Apotek</small>
+        Daftar Pasien Masuk Kasir
+        <small>Pasien Masuk Kasir</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
         <!-- <li><a href="#">Examples</a></li> -->
-        <li class="active">Pasien Masuk Apotek</li>
+        <li class="active">Pasien Masuk Kasir</li>
     </ol>
 </section>
 
@@ -17,7 +17,7 @@
     <?php $this->view('messages') ?>
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Daftar Pasien Masuk Apotek</h3>
+            <h3 class="box-title">Daftar Pasien Masuk Kasir</h3>
 
         </div>
         <div class="box-body table-responsive">
@@ -45,20 +45,20 @@
                             <td><?= $data->nama_pembayaran ?></td>
                             <td>
                                 <?php
-                                if ($data->status == 3) { ?>
-                                    <p style="color: red;"><b>Kirim Ke Kasir</b></p>
-                                <?php } else if ($data->status == 6) { ?>
-                                    <p style="color: green;"><b>Pengambilan Obat</b></p>
+                                if ($data->status == 4) { ?>
+                                    <p style="color: red;"><b>Menunggu Pembayaran</b></p>
+                                <?php } else if ($data->status == 5) { ?>
+                                    <p style="color: green;"><b>Ambil Obat di Apotek</b></p>
                                 <?php  } ?>
                             </td>
                             <td class="text-center" width="15%;">
                                 <?php
-                                if ($data->status == 3) { ?>
-                                    <a href="<?= site_url('pasien_masuk_apotek/soap/' . $data->id . '?tab=obat') ?>" class="btn btn-warning btn-sm" title="Detail" data-toggle="tooltip" data-placement="top">
+                                if ($data->status == 4) { ?>
+                                    <a href="<?= site_url('pasien_masuk_kasir/soap/' . $data->id . '?tab=obat') ?>" class="btn btn-warning btn-sm" title="Detail" data-toggle="tooltip" data-placement="top">
                                         <i class="fa fa-newspaper-o"> </i>
                                     </a>
-                                <?php } else if ($data->status == 6) { ?>
-                                    <a href="<?= site_url('pasien_masuk_apotek/ambilobat/' . $data->id . '?tab=obat') ?>" class="btn btn-success btn-sm" title="Ambil Obat" data-toggle="tooltip" data-placement="top">
+                                <?php } else if ($data->status == 5) { ?>
+                                    <a href="<?= site_url('pasien_masuk_kasir/send/' . $data->id . '?tab=obat') ?>" class="btn btn-success btn-sm" title="Ambil Obat" data-toggle="tooltip" data-placement="top">
                                         <i class="fa fa-check"> </i>
                                     </a>
                                 <?php }

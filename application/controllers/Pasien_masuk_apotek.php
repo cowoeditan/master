@@ -47,7 +47,15 @@ class Pasien_masuk_apotek extends CI_Controller {
     public function send($id){
         $this->pasien_masuk_apotek_m->send($id);
         if($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata('success', 'data berhasil dikirim');
+            $this->session->set_flashdata('success', 'data berhasil dikirim ke kasir');
+        }
+        redirect('pasien_masuk_apotek');
+    }
+    
+    public function ambilobat($id){
+        $this->pasien_masuk_apotek_m->ambilobat($id);
+        if($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('success', 'obat/resep telah di ambil ');
         }
         redirect('pasien_masuk_apotek');
     }
